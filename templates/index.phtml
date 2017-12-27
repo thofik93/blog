@@ -1,38 +1,302 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8"/>
-        <title>Slim 3</title>
-        <link href='//fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
-        <style>
-            body {
-                margin: 50px 0 0 0;
-                padding: 0;
-                width: 100%;
-                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-                text-align: center;
-                color: #aaa;
-                font-size: 18px;
-            }
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Thofik Wiranata Blog | Front-end Engineer Indonesia</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-            h1 {
-                color: #719e40;
-                letter-spacing: -3px;
-                font-family: 'Lato', sans-serif;
-                font-size: 100px;
-                font-weight: 200;
-                margin-bottom: 0;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>Slim</h1>
-        <div>a microframework for PHP</div>
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
 
-        <?php if (isset($name)) : ?>
-            <h2>Hello <?= htmlspecialchars($name); ?>!</h2>
-        <?php else: ?>
-            <p>Try <a href="http://www.slimframework.com">SlimFramework</a></p>
-        <?php endif; ?>
-    </body>
+    <link rel="stylesheet" type='text/css' href="css/app.css" />
+    <script src="https://snapwidget.com/js/snapwidget.js"></script>
+  </head>
+  <body id="body">
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+
+    <div class="wrapper" id="app">
+      <header-component></header-component>
+      <div class="content container-910">
+        <router-view></router-view>
+      </div>
+      <footer-component></footer-component>
+    </div>
+    
+    <script type="text/x-template" id="pagination">
+      <ul class="pagination">
+        <li class="pagination__li active" v-for="i in 3" v-if="i === 1"><a href="#" class="pagination__a">{{ i }}</a></li>
+        <li class="pagination__li" v-else><a href="#" class="pagination__a">{{ i }}</a></li>
+        <li class="pagination__li"><a href="#" class="pagination__a"><i class="fa fa-angle-right"></i></a></li>
+      </ul>
+    </script>
+    <script type="text/x-template" id="homeComponent">
+      <div>
+        <div class="post-classic" v-for="i in 5">
+          <div class="post-classic__thumbnail img-cover mb_28" style="background-image: url('images/Resturant-Employer-940x400.jpg')"></div>
+
+          <div class="post-classic__content">
+            <h2 class="post-classic__title"><a href="#" rel="bookmark">Restaurant Employer Read Clients Orders On His iPad</a></h2>
+            
+            <div class="post-classic__toolbar mb_14">
+              <span><i class="fa fa-tag"></i>Tags<a href="#">People</a></span>
+              <span>May 17, 2015</span>
+              <span><a href="#">Leave a comment</a></span>
+            </div>
+
+            <p>It’s no secret that the digital industry is booming. From exciting startups to global brands, companies are reaching out to digital agencies, responding to the new possibilities available. However, the industry is fast becoming overcrowded, heaving with agencies offering similar services — on the surface, at least. Producing creative, fresh projects is the key to standing out. Unique side projects are the best place to innovate, but balancing commercially and creatively lucrative work is tricky. So, this article looks at..</p>
+            
+            <div class="post-classic__group">
+              <router-link to="/detail" class="btn-read-more btn btn_round">Continue Reading</router-link>
+            </div>
+          </div>
+        </div>
+        <pagination></pagination>
+      </div>
+    </script>
+    <script type="text/x-template" id="headerComponent">
+      <div>
+        <header class="header lora mb_42 hidden-mobile">
+          <div class="container-910">
+            <div class="row">
+              <div class="large7 column">
+                <list-menu></list-menu>
+              </div>
+
+              <div class="large5 column text-right">
+                <form class="form-search-header">
+                  <input type="search" name="search_article" class="search-header" placeholder="Hit enter to search">
+                </form>
+              </div>
+            </div>
+          </div>
+        </header>
+        
+        <div class="ct-header-mobile">
+          <header class="header mb_30 hidden-desktop">
+            <div class="mobile-menu" v-on:click="slideToggle(menuMobileActive)">
+              <span class="mobile-menu__text">Menu</span>
+              <span class="mobile-menu__strip">-</span>
+              <span class="mobile-menu__strip">-</span>
+              <span class="mobile-menu__strip">-</span>
+            </div>
+            <transition 
+              name="custom-classes-transition"
+              enter-active-class="animated fadeIn"
+              leave-active-class="animated fadeOut" :duration="150">
+              <div class="mobile-menu-list" v-if="menuMobileActive">
+                <list-menu class="list-menu--mobile"></list-menu>
+                <div class="mobile-menu-list__search">
+                  <input type="text" class="mobile-menu-list__input" placeholder="Hit enter to search">
+                </div>
+              </div>
+            </transition>
+          </header>
+        </div>
+      </div>
+    </script>
+    <script type="text/x-template" id="listMenu">
+     <ul class="list-menu">
+       <li class="list-menu__li" v-for="menu in menus"><a href="#" class="list-menu__li__a">{{ menu }}</a></li>
+     </ul> 
+    </script>
+    <script type="text/x-template" id="listArticle">
+      <div>
+        <h3 class="list-article-heading lora-bold">{{ heading }}</h3>
+        <ul class="list-article">
+          <li class="list-article__item" v-for="i in 5">
+            <div class="list-article__content">
+              <a href="#" class="list-article__title lora-bold">Amazing Classic Interior Design With Perfect Lighting</a>
+              <span class="list-article__datetime">May 17, 2015</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </script>
+    <script type="text/x-template" id="footerComponent">
+      <footer class="ct-footer">
+        <div class="snapwidget-container">
+          <div class="hidden-mobile">
+            <iframe src="https://snapwidget.com/embed/361202" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%;display: block;"></iframe>
+          </div>
+          <div class="hidden-desktop">
+            <iframe src="https://snapwidget.com/embed/486777" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%;display: block; "></iframe>
+          </div>
+        </div>
+        <div class="footer">
+          <div class="footer-content container-910">
+            <div class="row">
+              <div class="column large4 medium4 small4 mobile12">
+                <h3 class="list-article-heading">About Me</h3>
+                <img class="img-responsive mb_18 img-round" src="images/avatar.jpg" alt="About Me">
+                <p class="mb_18 size_14 lh_20 xs-mb_4">Hello World, I am Front-end Engineer in <a href="http://qeon.com/" target="_blank" class="link-underline">Qeon Interactive</a> and also freelancer.</p>
+
+                <p class=" size_14 lh_20 mb_18 xs-mb_20">If you have a cool projects in mind, Don't hesitate. Contact me on phone +6281287299922.</p>
+              </div>
+
+              <div class="column large4 medium4 small4 mobile12">
+                
+                <list-article heading="Popular Posts"></list-article>
+                
+              </div>
+
+              <div class="column large4 medium4 small4 mobile12">
+                <list-article heading="List Free e'books"></list-article>
+              </div>
+            </div>
+          </div>
+          <div class="container-910 pt_16 pb_16">
+            <p class="footer-copyright size_12">© 2017 Writing Designs, INC. All Rights Reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </script>
+    <script type="text/x-template" id="detailComponent">
+      <div>
+        <img src="images/Resturant-Employer-940x400.jpg" class="img-responsive img-round mb_28">
+
+        <div class="container-710">
+          <div class="detail-content">
+            <h1 class="title-article lora-bold size_24 mb_8">Restaurant Employer Read Clients Orders On His iPad</h1>
+
+            <div class="post-classic__toolbar mb_14">
+              <span><i class="fa fa-tag"></i>Tags<a href="#">People</a></span>
+              <span>May 17, 2015</span>
+            </div>
+
+            <p><strong>It’s no secret</strong> that the digital industry is booming. From exciting startups to global brands, companies are reaching out to digital agencies, responding to the new possibilities available. However, the industry is fast becoming overcrowded, heaving with agencies offering similar services — on the surface, at least.</p>
+
+            <p>Producing creative, fresh projects is the key to standing out. Unique side projects are the best place to innovate, but balancing commercially and creatively lucrative work is tricky. So, this article looks at how to make side projects work and why they’re worthwhile, drawing on lessons learned from our development of the ux&nbsp;ompanion app.</p>
+
+            <h4>Why Integrate Side Projects?</h4>
+
+            <p>Being creative within the constraints of client briefs, budgets and timelines is the norm for most agencies. However, investing in research and development as a true, creative outlet is a powerful addition. In these side projects alone, your team members can pool their expertise to create and shape their own vision — a powerful way to develop motivation, interdisciplinary skills and close relationships.</p>
+
+            <blockquote><p>People think focus means saying yes to the thing you’ve got to focus on. But that’s not what it means at all.</p></blockquote>
+
+            <p>Building into the identity and culture of an agency can also lead to new client work. These projects act as a road map, showing clients exciting new technologies and ideas that will differentiate you from competitors. One of our earliest projects turned our website into a brochure, optimized for the first iPad’s touch interactions. By demonstrating the final product, we went on to win a project to create a similar product for a new client.</p>
+
+            <h4>How To Make Side Projects Work</h4>
+
+            <p><img class=" wp-image-159 size-full alignright" src="https://awcdn1.ahmad.works/writing/wp-content/uploads/2015/05/sketch.jpg" alt="sketch" width="390" height="297" srcset="https://awcdn1.ahmad.works/writing/wp-content/uploads/2015/05/sketch-300x228.jpg 300w, https://awcdn1.ahmad.works/writing/wp-content/uploads/2015/05/sketch.jpg 390w" sizes="(max-width: 390px) 100vw, 390px">We’re still working on achieving that perfect balance between commerce and creativity. But we have fresh inspiration on how it’s done from having worked on ux companion. The app gained a popular following in early October, as one of the first native apps to offer a full glossary of user experience terms and theory — but the development process was definitely a learning process.</p>
+
+            <p>Commercializing side projects alongside client work isn’t easy. Even if such projects are intended to generate additional revenue streams, they are not directly related to your core business. Those with a more qualitative aim, such as promoting expertise or technological experimentation, are even harder to justify.</p>
+
+            <p>A significant shift in mindset is required to support either type of side project — weighing the longer-term, incremental benefits against committing what would otherwise be immediately billable time. Many agencies do this with a time-bound model of 80% client time versus 20% time, inspired by Google’s successes with Gmail and Google Reader &nbsp;which they have since (tellingly) phased out. I’d instead recommend the following guidelines.</p>
+
+            <ul class="list-share">
+              <li class="list-share__icon list-share__icon--default">
+                <a href="#" class="list-share__link"><i class="fa fa-share"></i></a>
+              </li>
+              <li class="list-share__icon link-share__icon--fb">
+                <a href="#" class="list-share__link"><i class="fa fa-facebook"></i></a>
+              </li>
+              <li class="list-share__icon link-share__icon--twitter">
+                <a href="#" class="list-share__link "><i class="fa fa-twitter"></i></a>
+              </li>
+              <li class="list-share__icon link-share__icon--linkedin">
+                <a href="#" class="list-share__link"><i class="fa fa-linkedin"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="detail-others">
+          <div class="post-navigation">
+            <div class="row row0">
+              <div class="column column_gutter25 large6 medium6 small6 mobile12">
+                <a href="#" class="post-navigation__link post-navigation__link--prev">
+                  <div class="post-navigation__thumbnail to-left">
+                    <div class="img-cover post-navigation__thumbnail" style="background-image: url('images/Desserts-150x150.jpg')"></div>
+                  </div>
+                  <div class="post-navigation__content pl_80">
+                    <span class="post-navigation__h block">Previous Post:</span>
+                    <span class="post-navigation__title block lora-bold">English Breakfast Tea With Tasty Donut Desserts</span>
+                  </div>
+                </a>
+              </div>
+
+              <div class="column column_gutter25 large6 medium6 small6 mobile12">
+                <a href="#" class="post-navigation__link post-navigation__link--next">
+                  <div class="post-navigation__thumbnail to-right">
+                    <div class="img-cover post-navigation__thumbnail" style="background-image: url('images/Desserts-150x150.jpg')"></div>
+                  </div>
+                  <div class="post-navigation__content pr_80 text-right">
+                    <span class="post-navigation__h block">Next Post:</span>
+                    <span class="post-navigation__title block lora-bold">English Breakfast Tea With Tasty Donut Desserts</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="related-post">
+            <h2 class="related-post__h mb_20">Related Post:</h2>
+            <div class="row">
+              <div class="column large4 medium4 small4 mobile12">
+                <div class="related-post__item">
+                  <img src="images/Talking-Coworkers-455x310.jpg" class="related-post__img img-responsive img-round">
+
+                  <a href="#" class="related-post__title lora-bold">Co-founder Trying To Explain His Idea To His Employers</a>
+                </div>
+              </div>
+
+              <div class="column large4 medium4 small4 mobile12">
+                <div class="related-post__item">
+                  <img src="images/Smart-Girl-455x310.jpg" class="related-post__img img-responsive img-round">
+                  <a href="#" class="related-post__title lora-bold">Girl With Beautiful Eyes Wants To Fly</a>
+                </div>
+              </div>
+
+              <div class="column large4 medium4 small4 mobile12">
+                <div class="related-post__item">
+                  <img src="images/Blue-Sea-Water-455x310.jpg" class="related-post__img img-responsive img-round">
+                  <a href="#" class="related-post__title lora-bold">Modern City With Amazing Dark Blue Sea</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="ct-comment">
+            <h2 class="comment-h size_17 mb_15">Leave a reply: </h2>
+            <p class="comment-notes">Your email address will not be published.</p>
+
+            <form>
+              <div class="row">
+                <div class="column large12 medium12 small12 mobile12">
+                  <textarea class="form-control" style="height: 171px"></textarea>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="column large4 medium4 small4 mobile12">
+                  <input type="text" class="form-control" placeholder="Name">
+                </div>
+
+                <div class="column large4 medium4 small4 mobile12">
+                  <input type="text" class="form-control" placeholder="Email">
+                </div>
+
+                <div class="column large4 medium4 small4 mobile12">
+                  <input type="text" class="form-control" placeholder="Website">
+                </div>
+              </div>
+
+              <div class="text-left mt_16">
+                <input name="submit" type="submit" id="submit" class="btn btn_round btn-post-comment lora-bold" value="Post Comment">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </script>
+    <script src="vendor/vue/vue.js"></script>
+    <script src="vendor/vue/vue-router.js"></script>
+    <script src="js/app.js"></script>
+  </body>
 </html>

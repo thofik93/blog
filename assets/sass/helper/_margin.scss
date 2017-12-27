@@ -1,0 +1,29 @@
+@for $i from 1 through 100 {
+  .mb_#{$i} {  
+  	margin-bottom: ($i * 1px);
+  }
+}
+
+@for $i from 1 through 100 {
+  .mt_#{$i} {  
+  	margin-top: ($i * 1px);
+  }
+}
+
+
+@media(max-width: 768px) {
+	.xs-mb_0 {
+		margin-bottom: 0;
+	}
+	@for $i from 1 through 100 {
+	  .xs-mb_#{$i} {  
+	  	margin-bottom: ($i * 1px);
+	  }
+	}
+
+	@for $i from 1 through 100 {
+	  .xs-mt_#{$i} {  
+	  	margin-top: ($i * 1px);
+	  }
+	}
+}

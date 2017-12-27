@@ -1,0 +1,80 @@
+@font-face {
+  font-family: 'Lora-Bold';
+  src: url('../fonts/lora/Lora-Bold.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/lora/Lora-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/lora/Lora-Bold.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/lora/Lora-Bold.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../fonts/lora/Lora-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/lora/Lora-Bold.svg#LoraBold') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+  font-family: 'Lora-BoldItalic';
+  src: url('../fonts/lora/Lora-BoldItalic.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/lora/Lora-BoldItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/lora/Lora-BoldItalic.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/lora/Lora-BoldItalic.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../fonts/lora/Lora-BoldItalic.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/lora/Lora-BoldItalic.svg#LoraBoldItalic') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+  font-family: 'Lora-Italic';
+  src: url('../fonts/lora/Lora-Italic.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/lora/Lora-Italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/lora/Lora-Italic.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/lora/Lora-Italic.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../fonts/lora/Lora-Italic.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/lora/Lora-Italic.svg#LoraItalic') format('svg'); /* Legacy iOS */
+}
+
+@font-face {
+  font-family: 'Lora-Regular';
+  src: url('../fonts/lora/Lora-Regular.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/lora/Lora-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/lora/Lora-Regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/lora/Lora-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+       url('../fonts/lora/Lora-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/lora/Lora-Regular.svg#LoraRegular') format('svg'); /* Legacy iOS */
+}
+
+* {
+	box-sizing: border-box;
+	&:before, &:after {
+		box-sizing: border-box;
+	}
+}
+body {
+	background-color: #fff;
+	font-family: 'Lora-Regular', serif;
+	font-size: 14px;
+	line-height: 20px;
+  letter-spacing: normal;
+	color: #222;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-size-adjust: 100%;
+}
+
+ul {
+	margin: 0;
+  padding: 0;
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+h1,h2,h3,h4,h5,h6,p {
+	margin: 0;
+  color: #000;
+}
+
+.container {
+	position: relative;
+	width: 1270px;
+	margin: 0 auto;
+}

@@ -1,0 +1,73 @@
+.block {
+	display: block;
+}
+
+.clear {
+	clear: both;
+}
+
+@for $i from 400 through 1000 {
+  .container-#{$i} {  
+  	width: ($i * 1px);
+  	margin: 0 auto;
+  }
+}
+
+@media(max-width: 950px) {
+	.container-910 {
+		width: 100%;
+		padding: 0 20px;
+
+	}
+	
+}
+
+@media(max-width: 750px) {
+	.container-710 {
+		width: 100%;
+		padding: 0 20px;
+	}
+}
+
+.container-not-center {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.flex {
+	display: flex;
+}
+
+@media(min-width: 769px) {
+	.hidden-desktop {
+		display: none;
+	}
+}
+
+@media(max-width: 768px) {
+	.hidden-mobile {
+		display: none;
+	}
+}
+
+
+.inline-flex {
+	display: inline-flex;
+}
+
+.flex-center {
+	justify-content: center;
+	align-items: center;
+}
+
+.fn {
+	float: none;	
+}
+
+.to-left {
+	float: left;
+}
+
+.to-right {
+	float: right;
+}

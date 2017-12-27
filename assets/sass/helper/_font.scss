@@ -1,0 +1,28 @@
+@for $i from 8 through 100 {
+  .lh_#{$i} {  
+  	line-height: ($i * 1px);
+  }
+}
+
+.ls_04 {
+	letter-spacing: 0.4px;
+}
+
+.ls_08 {
+	letter-spacing: 0.8px;
+}
+
+.ls_1 {
+	letter-spacing: 1px;
+}
+
+@for $i from 8 through 100 {
+  .size_#{$i} {  
+  	font-size: ($i * 1px);
+  }
+}
+
+.link-underline {
+	text-decoration: underline;
+	
+}
