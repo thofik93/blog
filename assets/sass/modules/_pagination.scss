@@ -22,3 +22,9 @@
 		border-color: #ff4c89;
 	}
 }
+
+@media(max-width: 768px) {
+	.pagination {
+		padding: 20px 0 50px;
+	}
+}

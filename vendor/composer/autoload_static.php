@@ -27,6 +27,7 @@ class ComposerStaticInit9b7a0b191f920b713b3d523231049990
         array (
             'Symfony\\Component\\Yaml\\' => 23,
             'Slim\\Views\\' => 11,
+            'Slim\\PDO\\' => 9,
             'Slim\\' => 5,
         ),
         'P' => 
@@ -50,6 +51,10 @@ class ComposerStaticInit9b7a0b191f920b713b3d523231049990
         'D' => 
         array (
             'Doctrine\\Instantiator\\' => 22,
+        ),
+        'A' => 
+        array (
+            'App\\' => 4,
         ),
     );
 
@@ -75,6 +80,10 @@ class ComposerStaticInit9b7a0b191f920b713b3d523231049990
         'Slim\\Views\\' => 
         array (
             0 => __DIR__ . '/..' . '/slim/php-view/src',
+        ),
+        'Slim\\PDO\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/slim/pdo/src/PDO',
         ),
         'Slim\\' => 
         array (
@@ -107,6 +116,10 @@ class ComposerStaticInit9b7a0b191f920b713b3d523231049990
         'Doctrine\\Instantiator\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator',
+        ),
+        'App\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/classes',
         ),
     );
 

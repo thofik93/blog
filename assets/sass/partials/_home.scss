@@ -89,8 +89,16 @@
 		height: 140px;
 	}
 
+	.post-classic__toolbar {
+		span {
+			margin-right: 7px;
+		}
+	}
+
 	.post-classic__title {
 		font-size: 20px;
+		line-height: 26px;
+		margin-bottom: 7px;
 	}
 }
 
